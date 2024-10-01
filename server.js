@@ -8,8 +8,11 @@ require('dotenv').config();
 const apiRoutes         = require('./routes/api.js');
 const fccTestingRoutes  = require('./routes/fcctesting.js');
 const runner            = require('./test-runner');
+const connectDB         = require('./db-connections');
 
 const app = express();
+
+connectDB(); // Call the database connection
 
 app.use('/public', express.static(process.cwd() + '/public'));
 
